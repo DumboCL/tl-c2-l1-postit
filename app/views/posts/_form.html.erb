@@ -25,6 +25,6 @@
       <%= f.label :url %>
       <%= f.text_field :url %>
     </div>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= f.submit(@post.new_record? ? 'Create Post' : 'Update Post', class: 'btn btn-primary') %>
   <% end %>
 </div>

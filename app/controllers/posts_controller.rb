@@ -6,8 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-
+    
   end
 
   def new
@@ -27,11 +26,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "The post was updated"
       redirect_to posts_path
