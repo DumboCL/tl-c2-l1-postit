@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    
     @post = Post.new(post_params)
     @post.creator = User.first #TODO
 
@@ -28,7 +27,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all
   end
 
   def update
