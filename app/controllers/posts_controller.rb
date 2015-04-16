@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    
+    @comment = Comment.new
   end
 
   def new
@@ -14,7 +14,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    
     @post = Post.new(post_params)
+    @post.creator = User.first #TODO
 
     if @post.save
       flash[:notice] = "Your post was created."
@@ -26,6 +28,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
@@ -43,6 +46,6 @@ class PostsController < ApplicationController
     
   end
   def post_params
-    params.require(:post).permit!
+    params.require(:post).permit(:title, :url, :description, category_ids: [])
   end
 end
