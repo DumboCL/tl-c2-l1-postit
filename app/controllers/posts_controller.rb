@@ -21,7 +21,6 @@ class PostsController < ApplicationController
       flash[:notice] = "Your post was created."
       redirect_to posts_path
     else
-      flash[:notice] = @post.errors
       render 'new'
     end
   end
